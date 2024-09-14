@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 function Home() {
   return (
     <div className="flex flex-col md:flex-row h-screen p-4 md:p-10 gap-6 md:gap-12">
-      {/* Text Section */}
+     
       <div className="flex-1 flex items-center justify-center p-4 md:p-10 mt-8 md:mt-0">
         <motion.div
           initial={{ opacity: 0 }}
@@ -19,12 +19,11 @@ function Home() {
         </motion.div>
       </div>
 
-      {/* Background Image Section */}
       <div
         className="flex-1 bg-cover bg-center bg-no-repeat h-64 md:h-auto"
         style={{ backgroundImage: "url('image.png')" }}
       >
-        {/* Optionally, add content here if needed */}
+
       </div>
     </div>
   );
