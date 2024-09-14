@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-function Navbar({role}) {
+function Navbar({ role }) {
+  const [isOpen, setIsOpen] = useState(false); 
+  useEffect(() => {
+    setIsOpen(false); 
+  }, [role]);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen); // Toggle menu open/close state
+  };
+
+  const handleMenuItemClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="bg-blue-600 p-4 pr-28  pl-28 shadow-md fixed w-full z-10  "
+      className="bg-blue-600 p-4 shadow-md fixed w-full z-10"
     >
       <div className="container mx-auto flex justify-between items-center">
+        {/* Logo */}
         <motion.span
           className="text-white text-2xl font-bold"
           initial={{ x: -200 }}
@@ -19,67 +34,95 @@ function Navbar({role}) {
         >
           Book Store
         </motion.span>
-        <div className="flex space-x-4">
+
+       
+        <div className="md:hidden">
+          <button onClick={toggleMenu}>
+            {isOpen ? (
+              <FaTimes className="text-white text-2xl" />
+            ) : (
+              <FaBars className="text-white text-2xl" />
+            )}
+          </button>
+        </div>
+
+        {/* Links (toggle visibility on small screens) */}
+        <div
+          className={`${
+            isOpen ? "block" : "hidden"
+          } md:flex md:items-center md:space-x-4 absolute md:static top-16 left-0 w-full md:w-auto bg-blue-600 md:bg-transparent`}
+        >
           <motion.div
             whileHover={{ scale: 1.1 }}
             initial={{ x: 600 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
-            className="text-white"
+            className="text-white px-4 py-2 md:py-0"
+            onClick={handleMenuItemClick} // Close menu on click
           >
             <Link to="/books">Books</Link>
           </motion.div>
-        {role === "admin" && <>
-       
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            initial={{ x: 500 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white"
-          >
-            <Link to="/addbook">Add Book</Link>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            initial={{ x: 400 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white"
-          >
-            <Link to="/addstudent">Add Student</Link>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            initial={{ x: 300 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white"
-          >
-            <Link to="/dashboard">Dashboard</Link>
-          </motion.div>
-          </>}
-          {role === "" ?
-          <motion.div
-          whileHover={{ scale: 1.1 }}
-          initial={{ x: 200 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-          className="text-white"
-          >
-            <Link to="/login">Login</Link>
-          </motion.div>
-          :
-          <motion.div
-          whileHover={{ scale: 1.1 }}
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-          className="text-white"
-          >
-            <Link to="/logout">Logout</Link>
-          </motion.div>
-          }
+
+          {/* Links for Admin Role */}
+          {role === "admin" && (
+            <>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                initial={{ x: 500 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 1 }}
+                className="text-white px-4 py-2 md:py-0"
+                onClick={handleMenuItemClick} // Close menu on click
+              >
+                <Link to="/addbook">Add Book</Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                initial={{ x: 400 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 1 }}
+                className="text-white px-4 py-2 md:py-0"
+                onClick={handleMenuItemClick} // Close menu on click
+              >
+                <Link to="/addstudent">Add Student</Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                initial={{ x: 300 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 1 }}
+                className="text-white px-4 py-2 md:py-0"
+                onClick={handleMenuItemClick} // Close menu on click
+              >
+                <Link to="/dashboard">Dashboard</Link>
+              </motion.div>
+            </>
+          )}
+
+          {/* Login/Logout Links */}
+          {role === "" ? (
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              initial={{ x: 200 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+              className="text-white px-4 py-2 md:py-0"
+              onClick={handleMenuItemClick} // Close menu on click
+            >
+              <Link to="/login">Login</Link>
+            </motion.div>
+          ) : (
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              initial={{ x: 100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+              className="text-white px-4 py-2 md:py-0"
+              onClick={handleMenuItemClick} // Close menu on click
+            >
+              <Link to="/logout">Logout</Link>
+            </motion.div>
+          )}
         </div>
       </div>
     </motion.nav>

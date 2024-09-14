@@ -39,9 +39,9 @@ function AddStudent() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 ">
       <motion.div
-        className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md"
+        className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md mt-6"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}

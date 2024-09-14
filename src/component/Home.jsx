@@ -1,25 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import axios from 'axios';
+
 function Home() {
-  
   return (
-    <div className="flex h-screen p-28 gap-6 justify-around">
-      <div className="flex-1 flex items-center justify-around p-10">
+    <div className="flex flex-col md:flex-row h-screen p-4 md:p-10 gap-6 md:gap-12">
+      {/* Text Section */}
+      <div className="flex-1 flex items-center justify-center p-4 md:p-10 mt-8 md:mt-0">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-center "
+          className="text-center max-w-md md:max-w-lg"
         >
-          <h1 className="text-4xl font-bold mb-4">Welcome to Book Store</h1>
-          <p className="text-lg">Discover your next favorite book with us! Browse our extensive collection and find the perfect read for every mood.</p>
+          <h1 className="text-2xl md:text-4xl font-bold mb-4">Welcome to Book Store</h1>
+          <p className="text-base md:text-lg">
+            Discover your next favorite book with us! Browse our extensive collection and find the perfect read for every mood.
+          </p>
         </motion.div>
       </div>
-      <div 
-        className="flex-1 bg-cover bg-center bg-no-repeat" 
+
+      {/* Background Image Section */}
+      <div
+        className="flex-1 bg-cover bg-center bg-no-repeat h-64 md:h-auto"
         style={{ backgroundImage: "url('image.png')" }}
       >
+        {/* Optionally, add content here if needed */}
       </div>
     </div>
   );

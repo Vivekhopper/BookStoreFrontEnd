@@ -32,6 +32,7 @@ function Dashboard() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
+          whileHover={{scale:1.2}}
           className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
         >
           <h2 className="text-xl font-semibold mb-2">Total Books</h2>
@@ -42,6 +43,7 @@ function Dashboard() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
+          whileHover={{scale:1.2}}
           className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
         >
           <h2 className="text-xl font-semibold mb-2">Total Students</h2>
@@ -52,6 +54,7 @@ function Dashboard() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
+          whileHover={{scale:1.2}}
           className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
         >
           <h2 className="text-xl font-semibold mb-2">Total Admins</h2>

@@ -10,12 +10,12 @@ function Bookscard({ book, role }) {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white shadow-sm rounded-md overflow-hidden w-48 pt-20 grid-cols-3 "
+      className="bg-white shadow-sm rounded-md overflow-hidden w-48 h-96 pt-20 grid-cols-4 "
     >
       <motion.img
         src={imageurl}
         alt={bookname}
-        className="w-full h-32 object-cover"
+        className="w-full h-48 object-cover"
         whileHover={{ scale: 1.1 }}
       />
       <div className="p-3">

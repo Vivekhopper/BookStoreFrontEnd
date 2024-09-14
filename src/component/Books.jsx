@@ -19,7 +19,7 @@ function Books({role}) {
   return (
     <div className="p-4">
       {books.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pl-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pl-20">
           {books.map(book => (
             <Bookscard book={book} key={book._id} role={role}/> // Note the use of `key={book._id}`
           ))}
