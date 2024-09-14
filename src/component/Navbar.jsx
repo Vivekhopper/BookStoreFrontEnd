@@ -10,7 +10,7 @@ function Navbar({ role }) {
   }, [role]);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // Toggle menu open/close state
+    setIsOpen(!isOpen); 
   };
 
   const handleMenuItemClick = () => {
@@ -25,7 +25,7 @@ function Navbar({ role }) {
       className="bg-blue-600 p-4 shadow-md fixed w-full z-10"
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
+     
         <motion.span
           className="text-white text-2xl font-bold"
           initial={{ x: -200 }}
@@ -46,7 +46,7 @@ function Navbar({ role }) {
           </button>
         </div>
 
-        {/* Links (toggle visibility on small screens) */}
+      
         <div
           className={`${
             isOpen ? "block" : "hidden"
@@ -58,12 +58,12 @@ function Navbar({ role }) {
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
             className="text-white px-4 py-2 md:py-0"
-            onClick={handleMenuItemClick} // Close menu on click
+            onClick={handleMenuItemClick} 
           >
             <Link to="/books">Books</Link>
           </motion.div>
 
-          {/* Links for Admin Role */}
+        
           {role === "admin" && (
             <>
               <motion.div
@@ -72,7 +72,7 @@ function Navbar({ role }) {
                 animate={{ x: 0 }}
                 transition={{ duration: 1 }}
                 className="text-white px-4 py-2 md:py-0"
-                onClick={handleMenuItemClick} // Close menu on click
+                onClick={handleMenuItemClick} 
               >
                 <Link to="/addbook">Add Book</Link>
               </motion.div>
@@ -82,7 +82,7 @@ function Navbar({ role }) {
                 animate={{ x: 0 }}
                 transition={{ duration: 1 }}
                 className="text-white px-4 py-2 md:py-0"
-                onClick={handleMenuItemClick} // Close menu on click
+                onClick={handleMenuItemClick}
               >
                 <Link to="/addstudent">Add Student</Link>
               </motion.div>
@@ -92,14 +92,14 @@ function Navbar({ role }) {
                 animate={{ x: 0 }}
                 transition={{ duration: 1 }}
                 className="text-white px-4 py-2 md:py-0"
-                onClick={handleMenuItemClick} // Close menu on click
+                onClick={handleMenuItemClick}
               >
                 <Link to="/dashboard">Dashboard</Link>
               </motion.div>
             </>
           )}
 
-          {/* Login/Logout Links */}
+      
           {role === "" ? (
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -107,7 +107,7 @@ function Navbar({ role }) {
               animate={{ x: 0 }}
               transition={{ duration: 1 }}
               className="text-white px-4 py-2 md:py-0"
-              onClick={handleMenuItemClick} // Close menu on click
+              onClick={handleMenuItemClick} 
             >
               <Link to="/login">Login</Link>
             </motion.div>
@@ -118,7 +118,7 @@ function Navbar({ role }) {
               animate={{ x: 0 }}
               transition={{ duration: 1 }}
               className="text-white px-4 py-2 md:py-0"
-              onClick={handleMenuItemClick} // Close menu on click
+              onClick={handleMenuItemClick}
             >
               <Link to="/logout">Logout</Link>
             </motion.div>
